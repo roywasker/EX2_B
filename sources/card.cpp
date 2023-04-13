@@ -11,9 +11,14 @@ std::string card::getcardname(){return name_;}
 
 std::string card::getcardtype(){ return type_;}
 
+/**
+ * Conversion of the card name to its int number
+ * @param name name of the card
+ * @return Card number by int
+ */
 int strToInt(std::string name) {
     int numOfCard = 0;
-    try {
+    try {                                   // Convert String to int  https://www.geeksforgeeks.org/stdstoi-function-in-cpp/
         numOfCard = std::stoi(name);
     } catch (const std::invalid_argument &e) {
         if (name == "jack") {
@@ -30,6 +35,12 @@ int strToInt(std::string name) {
     }
     return numOfCard;
 }
+
+/**
+ * Comparison between 2 cards
+ * @param card1 card to compare with
+ * @return A positive number if a card is greater than card1 , 0 if they equal and negative number if a card is smaller than card1
+ */
 int card::compare(card card1) {
     int digOfCard1 = strToInt(name_);
     int digOfCard2 = strToInt(card1.getcardname());
